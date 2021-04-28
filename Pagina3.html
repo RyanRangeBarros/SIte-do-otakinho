@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <title>Pesquisa Anime</title>
+
+</head>
+
+<body>
+    
+    <div id="primeiramargem">
+        <form >
+            <h1>
+                <legend>Pesquisa para Otakus</legend>
+            </h1>
+            <p><strong>Escolha um anime com tema político</strong></p>
+            <select name id ="Animes">
+                <option value="SNK">Shingeky no kyojin</option>
+                <option value="CG">Code geass</option>
+                <option value="FM">Full Metal </option>
+                <option value="PP">Psycho-pass</option>
+                </select>
+                <br>
+                
+                <br>
+            <input type="button" value="proxima" onclick="Check(); window.location.href = 'Pagina4.html';">
+            
+            
+        
+        </form>
+        <p>
+        <input type="button" value="Voltar" onclick ="Check(); window.location.href = 'Pagina2.html'; ">
+       </p>
+    </div>
+
+</body>
+<script>
+      function Check(){
+        localStorage.setItem('seletor', document.getElementById('Animes').value)
+    }
+document.getElementById('Animes').value = localStorage.getItem('seletor')  
+        
+</script>
+
+</html>

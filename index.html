@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <title>Pesquisa Anime</title>
+
+</head>
+
+<body>
+    
+    <div id="primeiramargem">
+        <form action = "Pagina2.html">
+        
+        <h1><legend>Pesquisa para Otakus</legend></h1>
+        <label form="nome">Nome do Otaku:</label><br/>
+        <input type="text" id="name" name="name" placeholder = "Ensira seu nome" required><br/>
+
+        <br/>
+        <label for="pergunta1">Fale um pouco sobre sua opinião sobre relações políticas nos animes:</label><br/>
+        <textarea id="pergunta1" name="pergunta1" rows="20" cols="50" placeholder = "Digite sua resposta" required></textarea>
+        <br/>
+
+        <br/><input type="submit" value="proxima" onclick="pagina1()">
+        
+    </form>
+    </div>
+
+</body>
+<script>
+    function pagina1() {
+            localStorage.setItem("SeuNome", document.getElementById("name").value);
+            localStorage.setItem("Resposta1", document.getElementById("pergunta1").value);
+        }
+
+
+        document.getElementById("name").value = localStorage.getItem("SeuNome");
+        document.getElementById("pergunta1").value = localStorage.getItem("Resposta1");
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <title>Pesquisa Anime</title>
+
+</head>
+<script>
+    var nome = localStorage.getItem("SeuNome")
+    var resposta1 =localStorage.getItem("Resposta1")
+    var escolha = localStorage.getItem("escolha")
+    if(escolha == "Sim"){
+        var resposta2 = "O que vc acha da questão fascista do anime? -->" + localStorage.getItem("resposta2")
+    }
+    else if(escolha =="Não"){
+        var resposta2 = "Explique o anime mais politico que você ja assistiu -->" + localStorage.getItem("resposta3")
+    }
+    var seletor = localStorage.getItem("seletor")
+</script>
+
+<body>
+    
+    <div id="primeiramargem">
+        
+            <h1>
+                <legend>Pesquisa para Otakus</legend>
+            </h1>
+            <h2><strong>Resultado do otakinho:</strong></h2> <br><br>
+            <p><strong>Nome</strong> --> <script> document.write(nome)</script><br><br>
+                <strong> Resposta da pagina 1</strong> --> <script> document.write(resposta1)</script><br><br>
+                <strong> A opção da pagina 2 foi</strong>--> <script> document.write(escolha)</script><br><br>
+             <script> document.write(resposta2)</script><br><br>
+             <strong> Por fim o anime político escolhido foi</strong> --> <script> document.write(seletor)</script><br>
+
+
+            </p>
+           
+            
+            
+        <p>
+        <input type="button" value="Voltar" onclick =" window.location.href = 'Pagina3.html'; ">
+        <input type="button" value="Refazer" onclick="localStorage.clear(); window.location.href = 'index.html'";>
+       </p>
+    </div>
+
+</body>
+
+
+</html>

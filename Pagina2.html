@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <title>Pesquisa Anime</title>
+
+</head>
+
+<body>
+    
+    <div id="primeiramargem">
+        <form id = "Marcado">
+
+            <h1>
+                <legend>Pesquisa para Otakus</legend>
+            </h1>
+            <p><Strong>Você já assistiu shingeki no kyojin?</Strong></p>
+            <input type="radio" id="Sim" name="escolha" value="Sim" onclick="func();Box('Sim')" >
+               <label for="Sim">Sim</label><br>
+               <input type="radio" id="Não" name="escolha" value="Não" onclick="func();Box('Não')">
+               <label for="Não">Não</label><br>
+               <br>
+               <textarea id="pergunta2" name="pergunta2" rows="20" cols="50" placeholder = "O que vc acha da questão fascista do anime?" required></textarea>
+               <textarea id="2pergunta2" name="2pergunta2" rows="20" cols="50" placeholder = "Explique o anime mais politico que você ja assistiu" required></textarea>
+            <input type="button" value="proxima" onclick="func(); window.location.href = 'Pagina3.html'; pagina3();">
+            
+            
+        
+        </form>
+        <p>
+        <input type="submit" value="Voltar" onclick="func(); window.location.href = 'index.html'; ">
+       </p>
+    </div>
+
+</body>
+<script>
+
+function func(){
+        var Marcado = document.getElementById('Marcado')
+
+        for (let i = 0; i < Marcado.length; i++){
+            if (Marcado[i].checked == true){
+                
+                if(i==0){
+                    localStorage.setItem("escolha", "Sim");
+                }
+                else{
+                    localStorage.setItem("escolha", "Não"); 
+                }
+            }
+            
+        }
+        localStorage.setItem("resposta2", document.getElementById("pergunta2").value);
+        localStorage.setItem("resposta3", document.getElementById("2pergunta2").value);
+    }
+    
+
+    iterador = localStorage.getItem('escolha')
+    if(iterador == "Sim"){
+        indice = 0;
+    }
+    else{
+        indice = 1;
+    }
+
+   
+    document.getElementById('Marcado')[indice].checked = true
+
+
+    
+
+        function Box(value){
+            if(value == 'Sim'){
+                document.getElementById("pergunta2").style.display = "block";
+                document.getElementById("2pergunta2").style.display = "none";
+            }
+            else if(value == 'Não'){
+                document.getElementById("pergunta2").style.display = "none";
+                document.getElementById("2pergunta2").style.display = "block";
+            }
+
+            else{
+                document.getElementById("pergunta2").style.display = "none";
+                document.getElementById("2pergunta2").style.display = "none";
+            }
+
+        }
+
+    if (indice == 0){
+        Box('Sim')
+    }
+    else if (indice == 1){
+        Box('Não')
+    }
+    else{
+        Box('')
+    }
+
+    document.getElementById("pergunta2").value = localStorage.getItem("resposta2");
+    document.getElementById("2pergunta2").value = localStorage.getItem("resposta3");
+        
+        
+</script>
+
+</html>
